@@ -1,0 +1,236 @@
+@font-face {
+    font-family: "TT Lakes";
+    src: url("./fonts/TTLakes-Bold.woff");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "TT Lakes";
+    src: url("./fonts/TTLakes-Medium.woff");
+    font-weight: medium;
+}
+@font-face {
+    font-family: "TT Lakes";
+    src: url("./fonts/TTLakes-Regular.woff");
+    font-weight: normal;
+}
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: "TT Lakes";
+}
+
+ul, li, p, a, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+.main {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #7e7e82;
+
+    background: linear-gradient(270deg, #fff 0%, #f8f8f8 100%);
+    max-width: 1120px;
+    height: 56px;
+    padding: 15px 32px;
+}
+
+.links-wrapper {
+    background: #f8f8f8;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: start;
+    padding-bottom: 12px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 32px;
+    row-gap: 16px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.list__element {
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    width: 240px;
+    height: 72px;
+    background: #fff;
+    padding: 16px;
+    transition: background .3s;
+}
+
+.list__element--height-auto {
+    height: auto;
+}
+
+.list__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .3s;
+}
+
+.list__element:hover {
+    background: #fff9f9;
+}
+
+
+.list__button {
+    border: 2px solid #ff3e79;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    background-image: url('./images/checkMark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+
+}
+
+.list__link:hover .list__button {
+    background-color: rgb(255, 255, 255);
+    border: 3px solid #ff2868;
+}
+
+.links-wrapper__button {
+    border: none;
+    background: none;
+
+    font-weight: 500;
+    font-size: 16px;
+    color: #1b1c21;
+
+    cursor: pointer;
+
+    transition: color .3s;
+}
+.links-wrapper__button:hover {
+    color: #737684;
+}
+
+.links-wrapper__button--hide::after {
+    content: "";
+    display: block;
+    background: url('./images/show_hide.svg') no-repeat;
+    height: 11px;
+    width: 10px;
+    position: relative;
+    left: -22px;
+    bottom: 15px;
+}
+.links-wrapper__button--show::after {
+    content: "";
+    display: block;
+    background: url('./images/show_hide.svg') no-repeat;
+    height: 11px;
+    width: 10px;
+    position: relative;
+    left: -22px;
+    bottom: 15px;
+    transform: rotate(180deg);
+}
+
+.list__element--hide-desktop {
+    display: none;
+}
+
+.swiper {
+    display: none;
+}
+.swiper-pagination {
+    position: relative;
+    margin-top: 18px;
+    margin-bottom: 16px;
+}
+
+.swiper-wrapper {
+    margin-top: 16px;
+    margin-left: 16px;
+}
+
+.swiper-pagination-bullet-active {
+    background: #b5b6bc;
+}
+
+@media screen and (max-width: 1100px) {
+    .list {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .list {
+        column-gap: 24px;
+    }
+    .list__element {
+        width: 224px;
+    }
+    .links-wrapper {
+        padding:  24px;
+    }
+}
+
+@media screen and (max-width: 763px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 518px) {
+    .main {
+        display: none;
+    }
+    .swiper {
+        display: block;
+        background: #f8f8f8;
+    }
+    .list__element {
+        box-sizing: border-box;
+        width: 240px;
+        height: 72px;
+        padding: 16px;
+    }
+    .title {
+        padding-right: 4px;
+        padding-bottom: 10px;
+        height: 80px;
+    }
+    .list {
+        display: flex;
+        height: 100%;
+        overflow: unset;
+        padding-top: 16px;
+        margin-left: 16px;
+        column-gap: 0px;
+    }
+}
